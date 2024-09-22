@@ -15,8 +15,8 @@ import {game} from "./api/Game";
 
 requiresGameVersion("1.4.33");
 
-var id = "numberinc5";
-var name = "Number Incremental 5";
+var id = "copnerightzoght";
+var name = "Copneright Zoght";
 var description = "Under constuction"
 var authors = "Me";
 var version = 1;
