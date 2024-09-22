@@ -86,7 +86,6 @@ var init = () => {
 
     quaternaryEntries = [];
 
-    currency = BigNumber("1e50000")
     // Regular Upgrades
 
     // t
