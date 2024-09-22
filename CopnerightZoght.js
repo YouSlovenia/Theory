@@ -21,6 +21,26 @@ var description = "Under constuction"
 var authors = "Me";
 var version = 1;
 
+// internal variables
+var currency;
+var quaternaryEntries;
+var app_was_closed = false;
+
+// upgrade variables
+var a1, a2;
+
 var init = () => {
     currency = theory.createCurrency();
+
+    // Regular Upgrades
+
+    // q1
+    {
+        let getDesc = (level) => "q_1=" + getQ1(level).toString(0);
+        let getInfo = (level) => "q_1=" + getQ1(level).toString(0);
+        q1 = theory.createUpgrade(1, currency, new FirstFreeCost(new ExponentialCost(100, Math.log2(2))));
+        q1.getDescription = (_) => Utils.getMath(getDesc(q1.level));
+        q1.getInfo = (amount) => Utils.getMathTo(getDesc(q1.level), getDesc(q1.level + amount));
+        q1.bought = (sVarBought);
+    }
 }
