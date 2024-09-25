@@ -21,7 +21,7 @@ var authors = "Snaeky (SnaekySnacks#1161) - Structuring\nXLII (XLII#0042) - Bala
 var version = 1;
 
 var hack = () => {
-    game.starsTotal = () => {return 1e100}
+    game.starsTotal = () => {return BigNumber("1e100")}
 }
 var getEndPopup = ui.createPopup({
     title: "The End",
