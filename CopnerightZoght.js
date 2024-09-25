@@ -28,6 +28,7 @@ var app_was_closed = false;
 
 // upgrade variables
 var a1, a2;
+var num_publications = 0;
 
 var init = () => {
     currency = theory.createCurrency();
@@ -49,7 +50,7 @@ var init = () => {
     //Sercet and Normal Achievements
     let achievement_category_1 = theory.createAchievementCategory(0, "Secret Achievements");
 
-    s_achievement_1 = theory.createSecretAchievement(1, achievement_category_1, "It's Bright!", "You will get one in one million chance every second.", "No Hint", () => s1Proof());
+    s_achievement_1 = theory.createSecretAchievement(1, achievement_category_1, "How do you get much?", "Public your research 1000 times", "No Hint", () => num_publications >= 1000);
     s_achievement_2 = theory.createSecretAchievement(2, achievement_category_1, "Massively High", "Get 1e1000 Psi", "No Hint", () => game.psi() >= BigNumber.from("1e1000"));
     var getSecondaryEquation = () => {
         theory.secondaryEquationHeight = 70
