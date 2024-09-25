@@ -41,7 +41,6 @@ var init = () => {
         a1 = theory.createUpgrade(1, currency, new FirstFreeCost(new ExponentialCost(100, Math.log2(2))));
         a1.getDescription = (_) => Utils.getMath(getDesc(q1.level));
         a1.getInfo = (amount) => Utils.getMathTo(getDesc(q1.level), getDesc(q1.level + amount));
-        a1.bought = (sVarBought);
     }
 
     var getA1 = (level) => Utils.getStepwisePowerSum(level, 2, 10, 1);
