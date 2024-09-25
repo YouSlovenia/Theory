@@ -59,3 +59,4 @@ var init = () => {
         return result
     }
 }
+init()
