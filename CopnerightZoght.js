@@ -38,9 +38,24 @@ var init = () => {
     {
         let getDesc = (level) => "a_1=" + getA1(level).toString(0);
         let getInfo = (level) => "a_1=" + getA1(level).toString(0);
-        q1 = theory.createUpgrade(1, currency, new FirstFreeCost(new ExponentialCost(100, Math.log2(2))));
-        q1.getDescription = (_) => Utils.getMath(getDesc(q1.level));
-        q1.getInfo = (amount) => Utils.getMathTo(getDesc(q1.level), getDesc(q1.level + amount));
-        q1.bought = (sVarBought);
+        a1 = theory.createUpgrade(1, currency, new FirstFreeCost(new ExponentialCost(100, Math.log2(2))));
+        a1.getDescription = (_) => Utils.getMath(getDesc(q1.level));
+        a1.getInfo = (amount) => Utils.getMathTo(getDesc(q1.level), getDesc(q1.level + amount));
+        a1.bought = (sVarBought);
+    }
+
+    var getA1 = (level) => Utils.getStepwisePowerSum(level, 2, 10, 1);
+    theory.invalidateSecondaryEquation();
+
+    //Sercet and Normal Achievements
+    let achievement_category_1 = theory.createAchievementCategory(0, "Secret Achievements");
+
+    s_achievement_1 = theory.createSecretAchievement(1, achievement_category_1, "It's Bright!", s_achievement_1_description, "You will get one in one million chance every second.", () => s1Proof());
+    s_achievement_2 = theory.createSecretAchievement(2, achievement_category_1, "Massively High", s_achievement_2_description, "Get 1e1000 Psi", () => game.psi() >= BigNumber("1e1000"));
+    var getSecondaryEquation = () => {
+        theory.secondaryEquationHeight = 70
+        let result = "\\tau^{0.4}"
+
+        return result
     }
 }
