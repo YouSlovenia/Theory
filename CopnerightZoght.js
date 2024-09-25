@@ -50,7 +50,7 @@ var init = () => {
     let achievement_category_1 = theory.createAchievementCategory(0, "Secret Achievements");
 
     s_achievement_1 = theory.createSecretAchievement(1, achievement_category_1, "It's Bright!", "You will get one in one million chance every second.", "No Hint", () => s1Proof());
-    s_achievement_2 = theory.createSecretAchievement(2, achievement_category_1, "Massively High", "Get 1e1000 Psi", "No Hint", () => game.psi() >= BigNumber("1e1000"));
+    s_achievement_2 = theory.createSecretAchievement(2, achievement_category_1, "Massively High", "Get 1e1000 Psi", "No Hint", () => game.psi() >= BigNumber.from("1e1000"));
     var getSecondaryEquation = () => {
         theory.secondaryEquationHeight = 70
         let result = "\\tau^{0.4}"
