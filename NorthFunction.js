@@ -19,6 +19,7 @@ var chapter1, chapter2;
 
 var init = () => {
     currency_N = theory.createCurrency("N", "N");
+    currency_Q = theory.createCurrency("Q", "Q");
 
     ///////////////////
     // Regular Upgrades
@@ -42,9 +43,9 @@ var init = () => {
 
     /////////////////////
     // Permanent Upgrades
-    theory.createPublicationUpgrade(0, currency, 1e10);
-    theory.createBuyAllUpgrade(1, currency, 1e13);
-    theory.createAutoBuyerUpgrade(2, currency, 1e30);
+    theory.createPublicationUpgrade(0, currency_N, 1e10);
+    theory.createBuyAllUpgrade(1, currency_N, 1e13);
+    theory.createAutoBuyerUpgrade(2, currency_N, 1e30);
 
     ///////////////////////
     //// Milestone Upgrades
@@ -73,7 +74,7 @@ var updateAvailability = () => {
 var tick = (elapsedTime, multiplier) => {
     let dt = BigNumber.from(elapsedTime * multiplier);
     let bonus = theory.publicationMultiplier;
-    currency.value += dt * bonus * getC1(c1.level).pow(getC1Exponent(c1Exp.level)) *
+    currency_N.value += dt * bonus * getC1(c1.level).pow(getC1Exponent(c1Exp.level)) *
                                    getC2(c2.level).pow(getC2Exponent(c2Exp.level));
 }
 
@@ -96,8 +97,8 @@ var getPrimaryEquation = () => {
 var getSecondaryEquation = () => theory.latexSymbol + "=\\max\\rho";
 var getPublicationMultiplier = (tau) => tau.pow(0.164) / BigNumber.THREE;
 var getPublicationMultiplierFormula = (symbol) => "\\frac{{" + symbol + "}^{0.164}}{3}";
-var getTau = () => currency.value;
-var get2DGraphValue = () => currency.value.sign * (BigNumber.ONE + currency.value.abs()).log10().toNumber();
+var getTau = () => currency_N.value.pow(0.5);
+var get2DGraphValue = () => currency_N.value.sign * (BigNumber.ONE + currency.value.abs()).log10().toNumber();
 
 var getC1 = (level) => Utils.getStepwisePowerSum(level, 2, 10, 0);
 var getC2 = (level) => BigNumber.TWO.pow(level);
