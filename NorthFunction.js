@@ -43,8 +43,8 @@ var init = () => {
 
     /////////////////////
     // Permanent Upgrades
-    theory.createPublicationUpgrade(0, currency_N, 1e10);
-    theory.createBuyAllUpgrade(1, currency_N, 1e13);
+    theory.createPublicationUpgrade(0, currency_N, 3e7);
+    theory.createBuyAllUpgrade(1, currency_N, 1e10);
     theory.createAutoBuyerUpgrade(2, currency_N, 1e30);
 
     ///////////////////////
@@ -95,8 +95,8 @@ var getPrimaryEquation = () => {
 }
 
 var getSecondaryEquation = () => theory.latexSymbol + "=\\max\\rho";
-var getPublicationMultiplier = (tau) => tau.pow(0.164) / BigNumber.THREE;
-var getPublicationMultiplierFormula = (symbol) => "\\frac{{" + symbol + "}^{0.164}}{3}";
+var getPublicationMultiplier = (tau) => tau.pow(0.25) / BigNumber.FOUR;
+var getPublicationMultiplierFormula = (symbol) => "\\frac{{" + symbol + "}^{0.25}}{4}";
 var getTau = () => currency_N.value.pow(0.5);
 var get2DGraphValue = () => currency_N.value.sign * (BigNumber.ONE + currency_N.value.abs()).log10().toNumber();
 
