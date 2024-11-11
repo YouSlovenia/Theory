@@ -43,8 +43,7 @@ var init = () => {
         a1.getDescription = (_) => Utils.getMath(getDesc(a1.level));
         a1.getInfo = (amount) => Utils.getMathTo(getDesc(a1.level), getDesc(a1.level + amount));
     }
-
-    var getA1 = (level) => Utils.getStepwisePowerSum(level, 2, 10, 1);
+    
     theory.invalidateSecondaryEquation();
 
     //Sercet and Normal Achievements
@@ -66,5 +65,6 @@ var tick = (elapsedTime, multiplier) => {
 }
 
 var getTau = () => currency.value.pow(0.35)
+var getA1 = (level) => Utils.getStepwisePowerSum(level, 2, 10, 1);
 
 init()
