@@ -59,6 +59,12 @@ var init = () => {
     }
 }
 
+var tick = (elapsedTime, multiplier) => {
+    let dt = BigNumber.from(elapsedTime * multiplier);
+    let bonus = theory.publicationMultiplier;
+    currency.value += dt * bonus * getA1(a1.level)
+}
+
 var getTau = () => currency.value.pow(0.35)
 
 init()
