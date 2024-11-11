@@ -59,4 +59,7 @@ var init = () => {
         return result
     }
 }
+
+var getTau = () => currency.value.pow(0.35)
+
 init()
